@@ -1,7 +1,8 @@
 defmodule JsonToStructWeb.PageController do
   use JsonToStructWeb, :controller
+  alias Phoenix.LiveView
 
-  def index(conn, _params) do
-    render(conn, "index.html")
+  def index(conn, _) do
+    LiveView.Controller.live_render(conn, JsonToStructWeb.ThermostatLive, session: %{})
   end
 end

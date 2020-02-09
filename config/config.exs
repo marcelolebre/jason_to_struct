@@ -25,10 +25,13 @@ config :logger, :console,
 # Use Jason for JSON parsing in Phoenix
 config :phoenix, :json_library, Jason
 
-config :json_to_struct, JsonToStruct.Endpoint,
+config :json_to_struct, JsonToStructWeb.Endpoint,
    live_view: [
      signing_salt: "4ARO3XYgVBOY3T1gXx+TUAJTBDAbxAPY"
    ]
+
+config :phoenix,
+   template_engines: [leex: Phoenix.LiveView.Engine]
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 import_config "#{Mix.env()}.exs"
